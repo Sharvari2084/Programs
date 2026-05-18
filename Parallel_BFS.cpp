@@ -87,17 +87,31 @@ public:
 
 int main() {
 
-    Graph g(6);
+    int V, e;
 
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 3);
-    g.addEdge(1, 4);
-    g.addEdge(2, 5);
+    cout << "Enter number of vertices: ";
+    cin >> V;
 
-    g.displayGraph();
+    Graph g(V);
 
-    g.parallelBFS(0);
+    cout << "Enter number of edges: ";
+    cin >> e;
+
+    cout << "Enter edges (u v):\n";
+
+    for (int i = 0; i < e; i++) {
+        int u, v;
+        cin >> u >> v;
+        g.addEdge(u, v);
+    }
+
+    int start;
+    cout << "Enter starting vertex: ";
+    cin >> start;
+    
+    g.displayGraph();	
+
+    g.parallelBFS(start);
 
     return 0;
 }
